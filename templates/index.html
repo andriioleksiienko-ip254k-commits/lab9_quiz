@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QuizMind — ШІ-квіз генератор</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <main class="container">
+    <header class="topbar"><div class="logo"><span class="logo-icon">✦</span> QuizMind <span class="tag">AI</span></div><span class="top-note">Навчайся через цікаві тести</span></header>
+    <section class="hero"><div class="eyebrow">✦ SMART LEARNING</div><h1>Перевір свої знання<br><span>разом зі штучним інтелектом.</span></h1><p>Введи будь-яку тему, обери складність і отримай унікальний тест із поясненнями та оцінкою результату.</p></section>
+    <section id="setup" class="panel"><div class="panel-heading"><div><h2>Створи свій квіз</h2><p>Кілька налаштувань — і ти готовий</p></div><span class="step">01 / 03</span></div>
+      <form id="generate-form"><label for="topic">Тема тесту</label><input id="topic" maxlength="100" minlength="3" placeholder="Наприклад, історія України, Python, космос..." required>
+      <div class="form-grid"><div><label for="difficulty">Рівень складності</label><select id="difficulty"><option>Легкий</option><option selected>Середній</option><option>Складний</option></select></div><div><label for="count">Кількість питань</label><select id="count"><option value="5">5 питань</option><option value="10">10 питань</option></select></div></div>
+      <button id="generate-btn" type="submit" class="primary">✦ Згенерувати тест <span>↗</span></button></form>
+    </section>
+    <section id="quiz" class="panel hidden"><div class="panel-heading"><div><h2 id="quiz-title">Твій квіз</h2><p id="quiz-subtitle"></p></div><span id="progress-count" class="step">02 / 03</span></div><div class="progress"><div id="progress-bar"></div></div><div id="question-area"></div><div class="actions"><button id="prev-btn" class="secondary">← Назад</button><button id="next-btn" class="primary">Далі →</button></div></section>
+    <section id="results" class="panel hidden"><div class="panel-heading"><div><h2>Тест завершено!</h2><p>Ось як ти впорався</p></div><span class="step">03 / 03</span></div><div class="result-overview"><div id="result-score" class="score"></div><p id="result-message"></p></div><div id="feedback"></div><button id="again-btn" class="primary">✦ Створити новий квіз</button></section>
+    <section class="history-panel"><div class="history-heading"><div><h2>Історія проходжень</h2><p>Твої останні результати</p></div><button id="refresh-history" class="secondary small">↻ Оновити</button></div><div id="history-list" class="history-list">Історія поки що порожня</div></section>
+    <footer>QuizMind · Навчальний проєкт з Flask та Google Gemini</footer>
+  </main>
+  <div id="toast" class="toast hidden" role="alert"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
